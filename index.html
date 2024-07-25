@@ -48,7 +48,14 @@
     <main>
       <div class="container">
         <!-- for triggering actions -->
-        <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#addTaskModal">Add Task</button>
+        <button
+          class="btn btn-success"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#addTaskModal"
+        >
+          Add Task
+        </button>
         <!-- card:used for displaying content in structed format -->
         <div class="card mt-3">
           <div class="card-header">task list</div>
@@ -81,7 +88,11 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Add Task</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                  ></button>
                 </div>
                 <div class="modal-body">
                   <form action="">
@@ -120,13 +131,105 @@
               </div>
               <div class="modal-footer">
                 <button class="btn btn-primary" type="button">Save Task</button>
-                <button class="btn btn-secondary " data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-secondary" data-bs-dismiss="modal">
+                  Close
+                </button>
               </div>
             </div>
           </div>
         </div>
+        <!-- dropdown -->
+        <div class="dropdown mt-3">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+          >
+            Actions
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Edit Task</a></li>
+            <li><a class="dropdown-item" href="#">Delete Task</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" href="#">Mak As Completed</a></li>
+          </ul>
+        </div>
+        <!-- navs and tabs -->
+        <ul class="nav nav-tabs mt-4">
+          <li class="nav-item">
+            <button
+              class="nav-link active"
+              data-bs-toggle="tab"
+              data-bs-target="#allTasks"
+              type="button"
+            >
+              All tasks
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#completedTasks"
+              type="button"
+            >
+              Completed Tasks
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#PendingTask"
+              type="button"
+            >
+              pending tasks
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active show fade" id="allTasks">
+            <p>All the tasks will be displayed here</p>
+          </div>
+          <div class="tab-pane fade" id="completedTasks">
+            <p>All the completed tasks will be displayed here</p>
+          </div>
+          <div class="tab-pane fade" id="PendingTask">
+            <p>All the pending tasks will be displayed here</p>
+          </div>
+        </div>
+        <!-- pagination -->
+        <nav>
+          <ul class="pagination justify-content-center mt-4">
+            <li class="page-item">
+              <a class="page-link" href="#">Previous</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link active" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">next</a></li>
+          </ul>
+        </nav>
+        <!-- toolpis -->
+        <button
+          class="btn btn-info mt-4"
+          data-bs-toggle="tooltip"
+          data-bs-title="Navigating to documents page"
+          data-bs-placement="top"
+        >
+          Go to Documents
+        </button>
+        <!-- popovers -->
+        <button type="button" class="btn btn-danger mt-4 ms-2" data-bs-toggle="popover" title="Task Update" data-bs-content="this menu will save all current changes in the tasks at the one time. This taks some time for processing ." data-bs-placement="top">Save Changes</button>
       </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.6.7"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -137,5 +240,19 @@
       integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
       crossorigin="anonymous"
     ></script>
+    <script>
+      const tooltipTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="tooltip"]'
+      );
+      const tooltipList = [...tooltipTriggerList].map(
+        (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+      );
+      const popoverTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="popover"]'
+      );
+      const popoverList = [...popoverTriggerList].map(
+        (popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl)
+      );
+    </script>
   </body>
 </html>
